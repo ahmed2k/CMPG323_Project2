@@ -14,7 +14,7 @@ namespace photo_album.Services
 
         public AlbumRepo(Context context)
         {
-            _context = context
+            _context = context;
         }
 
         public void delete(int id)

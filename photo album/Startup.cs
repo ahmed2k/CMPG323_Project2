@@ -1,13 +1,20 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using photo_album.AutoMapper;
+using photo_album.Data;
+using photo_album.Infrastructure;
+using photo_album.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using photo_album.Automapper;
 
 namespace photo_album
 {
@@ -21,9 +28,20 @@ namespace photo_album
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddDbContext<Context>(Options => Options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IUnit, Unit>();
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new MyProfile());
+            });
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
