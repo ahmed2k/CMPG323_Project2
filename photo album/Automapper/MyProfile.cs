@@ -11,14 +11,15 @@ namespace photo_album.Automapper
     {
         public MyProfile()
         {
-        //    CreateMap<Album, albumsViewModel>.ReverseMap();
-        //    CreateMap<Album, editAlbumViewModel>.ReverseMap();
-        //    CreateMap<Album, createAlbumViewModel>.ReverseMap();
-        //    CreateMap<Album, AlbumComponentViewModel>.ReverseMap();
+            //    CreateMap<Album, albumsViewModel>.ReverseMap();
+            //    CreateMap<Album, editAlbumViewModel>.ReverseMap();
+            //    CreateMap<Album, createAlbumViewModel>.ReverseMap();
+            //    CreateMap<Album, AlbumComponentViewModel>.ReverseMap();
 
-        //    CreateMap<images, imageEditViewModel>.ReverseMap();
-        //    CreateMap<images, imageViewModel>()
-        //        .ForMember(dest => dest.AlbumTitle, opt => opt.MapFrom(src => src.album.Title));
+            //    CreateMap<images, imageEditViewModel>.ReverseMap();
+            //    CreateMap<images, createImageViewModel>.ReverseMap();
+            //    CreateMap<images, imageViewModel>()
+            //        .ForMember(dest => dest.AlbumTitle, opt => opt.MapFrom(src => src.album.Title));
 
         }
 
