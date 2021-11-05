@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using photo_album.AutoMapper;
+using photo_album.Automapper;
 using photo_album.Data;
 using photo_album.Infrastructure;
 using photo_album.Services;
@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using photo_album.Automapper;
+
 
 namespace photo_album
 {

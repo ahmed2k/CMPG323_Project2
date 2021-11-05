@@ -45,6 +45,7 @@ namespace photo_album.Services
             _context.SaveChanges();
         }
 
+        [Obsolete]
         public async void uploadFile(List<IFormFile> files)
         {
             foreach (IFormFile item in files)
