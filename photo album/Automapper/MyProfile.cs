@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using photo_album.Models;
+using photo_album.ViewModels.albumsViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,9 @@ namespace photo_album.Automapper
     {
         public MyProfile()
         {
-            //    CreateMap<Album, albumsViewModel>.ReverseMap();
-            //    CreateMap<Album, editAlbumViewModel>.ReverseMap();
-            //    CreateMap<Album, createAlbumViewModel>.ReverseMap();
-            //    CreateMap<Album, AlbumComponentViewModel>.ReverseMap();
+            CreateMap<Album, albumsViewModel>().ReverseMap();
+            CreateMap<Album, editAlbumViewModel>().ReverseMap();
+            CreateMap<Album, createAlbumViewModel>().ReverseMap();
 
             //    CreateMap<images, imageEditViewModel>.ReverseMap();
             //    CreateMap<images, createImageViewModel>.ReverseMap();

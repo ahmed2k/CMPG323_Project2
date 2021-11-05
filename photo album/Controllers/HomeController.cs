@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using photo_album.Infrastructure;
 using photo_album.Models;
+using photo_album.ViewModels.imageViewModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,16 +14,21 @@ namespace photo_album.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IUnit _unit;
+        private IMapper _mapper;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUnit _unit, IMapper _mapper)
         {
-            _logger = logger;
+            this._unit = _unit;
+            this._mapper = _mapper;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var model = _unit.iimagesRepo.GetAll();
+            var vm = _mapper.Map<List<imageViewModel>>(model);
+            return View(vm);
         }
 
         public IActionResult Privacy()
