@@ -13,7 +13,7 @@ namespace photo_album.ViewModels.imageViewModel
 
         public IFormFile File { get; set; }
 
-        public int AlubumId { get; set; }
+        public int AlbumId { get; set; }
 
     }
 }
