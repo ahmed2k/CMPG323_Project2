@@ -20,33 +20,33 @@ namespace PhotoAlbum
             //    BindGrid();
         }
 
-        private void saveImage()
-        {
-            if (FileUpload1.HasFile)
-            {
-                int imageFileLen = FileUpload1.PostedFile.ContentLength;
-                byte[] imgarray = new byte[imageFileLen];
-                HttpPostedFile image = FileUpload1.PostedFile;
-                image.InputStream.Read(imgarray, 0, imageFileLen);
-                con = new SqlConnection(connectionString);
-                con.Open();
-                string sql = "INSERT INTO Images(imageName,image) values(@imageName,@image)";
-                com = new SqlCommand(sql,con);
+        //private void saveImage()
+        //{
+        //    if (FileUpload1.HasFile)
+        //    {
+        //        int imageFileLen = FileUpload1.PostedFile.ContentLength;
+        //        byte[] imgarray = new byte[imageFileLen];
+        //        HttpPostedFile image = FileUpload1.PostedFile;
+        //        image.InputStream.Read(imgarray, 0, imageFileLen);
+        //        con = new SqlConnection(connectionString);
+        //        con.Open();
+        //        string sql = "INSERT INTO Images(imageName,image) values(@imageName,@image)";
+        //        com = new SqlCommand(sql,con);
 
-                com.Parameters.AddWithValue("@imageName", TextBox1.Text);
-                com.Parameters.AddWithValue("@image", imgarray);
-                com.ExecuteNonQuery();
-                con.Close();
-              //  BindGrid();
+        //        com.Parameters.AddWithValue("@imageName", TextBox1.Text);
+        //        com.Parameters.AddWithValue("@image", imgarray);
+        //        com.ExecuteNonQuery();
+        //        con.Close();
+        //      //  BindGrid();
                 
-            }
-        }
+        //    }
+        //}
 
 
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            saveImage();
+            //saveImage();
         }
 
         public void BindGrid() {

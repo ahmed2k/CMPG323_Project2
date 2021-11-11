@@ -16,9 +16,11 @@ namespace PhotoAlbum
         public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ghost\Documents\ImageGallery.mdf;Integrated Security=True;Connect Timeout=30";
         public SqlConnection con;
         public SqlCommand com;
+        
         public void ProcessRequest(HttpContext context)
         {
-            string imageID = "2";
+
+            string imageID = context.Request.QueryString["imageID"];
             con = new SqlConnection(connectionString);
             string sql = "SELECT image from Images WHERE imageID=" + imageID;
             com = new SqlCommand(sql, con);
