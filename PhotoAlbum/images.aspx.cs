@@ -16,8 +16,7 @@ namespace PhotoAlbum
         public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ghost\Documents\ImageGallery.mdf;Integrated Security=True;Connect Timeout=30";
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            //    BindGrid();
+          //BindGrid();
         }
 
         //private void saveImage()
@@ -51,12 +50,18 @@ namespace PhotoAlbum
 
         public void BindGrid() {
             con = new SqlConnection(connectionString);
-            string sql= "SELECT * from Images";
+            string sql= "SELECT * from Images WHERE [User] = '"+Session["User"].ToString()+"' ";
             com = new SqlCommand(sql, con);
             con.Open();
             SqlDataReader dr = com.ExecuteReader();
             GridView1.DataSource = dr;
             GridView1.DataBind();
+            Response.Write("Welcome" + Session["User"].ToString());
         }
+
+       
+        
+
+        
     }
 }

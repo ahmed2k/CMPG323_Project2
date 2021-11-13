@@ -76,5 +76,13 @@ namespace PhotoAlbum
             con.Close();
 
         }
+
+        protected void Button2_Click1(object sender, EventArgs e)
+        {
+            Session["User"] = TextBox1.Text;
+            Response.Redirect("images.aspx");
+        }
+
+       
     }
 }
