@@ -11,11 +11,9 @@
 &nbsp;select image:
         <br />
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        <br />
-        <br />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ImageID" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display.">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ImageID" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" SelectText="Share" ShowSelectButton="True" />
                 <asp:BoundField DataField="ImageID" HeaderText="ImageID" ReadOnly="True" SortExpression="ImageID" />
                 <asp:BoundField DataField="ImagesName" HeaderText="ImagesName" SortExpression="ImagesName" />
                 <asp:BoundField DataField="AlbumID" HeaderText="AlbumID" SortExpression="AlbumID" />
@@ -47,6 +45,8 @@
                 <asp:Parameter Name="ImageID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
+        <br />
+        <br />
     </form>
 </body>
 </html>
