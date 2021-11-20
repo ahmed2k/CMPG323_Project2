@@ -5,7 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+   <style type="text/css">
+       .hiddencol{
+           display:none;
+       }
+   </style>
     </head>
+    
 <body style="height: 246px">
     <form id="form1" runat="server">
 &nbsp;select image:
@@ -20,7 +26,7 @@
                 <asp:BoundField DataField="capturedBy" HeaderText="capturedBy" SortExpression="capturedBy" />
                 <asp:BoundField DataField="tags" HeaderText="tags" SortExpression="tags" />
                 <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
-                <asp:BoundField DataField="User" HeaderText="User" SortExpression="User" />
+                <asp:BoundField DataField="User" HeaderText="User" SortExpression="User" ItemStyle-CssClass="hiddencol" HeaderStyle-CssClass="hiddencol"/>
             </Columns>
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ImageGalleryConnectionString1 %>" DeleteCommand="DELETE FROM [Images] WHERE [ImageID] = @ImageID" InsertCommand="INSERT INTO [Images] ([ImagesName], [AlbumID], [capturedBy], [tags], [Location], [User]) VALUES (@ImagesName, @AlbumID, @capturedBy, @tags, @Location, @User)" SelectCommand="SELECT [ImageID], [ImagesName], [AlbumID], [capturedBy], [tags], [Location], [User] FROM [Images]" UpdateCommand="UPDATE [Images] SET [ImagesName] = @ImagesName, [AlbumID] = @AlbumID, [capturedBy] = @capturedBy, [tags] = @tags, [Location] = @Location, [User] = @User WHERE [ImageID] = @ImageID">

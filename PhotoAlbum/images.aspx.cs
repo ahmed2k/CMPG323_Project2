@@ -107,15 +107,14 @@ namespace PhotoAlbum
             String Location = GridView1.SelectedRow.Cells[5].Text;
             String tags = GridView1.SelectedRow.Cells[6].Text;
             String User = GridView1.SelectedRow.Cells[7].Text;
-            //Response.Write("<script>alert('" + name +capturedBy+Location+tags+User + "')</script>");
-            //  Response.Write("<script>alert('" + i + "')</script>");
-            con = new SqlConnection(connectionString);
-            con.Open();
-            string sql = "INSERT INTO Shared VALUES('" + name + "','" + capturedBy + "','" + Location + "','" + tags + "','" + User + "')";
-            com = new SqlCommand(sql, con);
-            com.ExecuteNonQuery();
-            con.Close();
-            Response.Write("<script>alert('Image shared successfully')</script>");
+            Response.Write("<script>alert('" + User + "')</script>");
+            //con = new SqlConnection(connectionString);
+            //con.Open();
+            //string sql = "INSERT INTO Shared VALUES('" + name + "','" + capturedBy + "','" + Location + "','" + tags + "','" + User + "')";
+            //com = new SqlCommand(sql, con);
+            //com.ExecuteNonQuery();
+            //con.Close();
+            //Response.Write("<script>alert('Image shared successfully')</script>");
 
 
         }
