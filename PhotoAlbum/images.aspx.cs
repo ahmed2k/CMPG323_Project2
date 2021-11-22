@@ -14,6 +14,8 @@ namespace PhotoAlbum
     {
         public SqlConnection con;
         public SqlCommand com;
+        public DataSet ds;
+        public SqlDataAdapter adap;
         public string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Ghost\Documents\ImageGallery.mdf;Integrated Security=True;Connect Timeout=30";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -118,5 +120,7 @@ namespace PhotoAlbum
 
 
         }
+
+       
     }
 }
